@@ -11,13 +11,13 @@ function converterParaTBq() {
 
     switch (unidade) {
         case "Bq":
-            tbq = valor / Math.pow(1000, 4);
+            tbq = valor / Math.pow(10, 12); // 10^12
             break;
         case "KBq":
-            tbq = valor / Math.pow(1000, 3);
+            tbq = valor / Math.pow(10, 9);  // 10^9
             break;
         case "MBq":
-            tbq = valor / Math.pow(1000, 2);
+            tbq = valor / Math.pow(10, 6);  // 10^6
             break;
         case "GBq":
             tbq = valor / 1000;
@@ -30,5 +30,11 @@ function converterParaTBq() {
             return;
     }
 
-    document.getElementById("tbq").textContent = `Terabecquerel (TBq): ${tbq}`;
+    // A mágica acontece aqui:
+    // maximumFractionDigits: 20 garante que ele mostre até 20 casas decimais sem arredondar precocemente
+    const resultadoFormatado = tbq.toLocaleString('pt-BR', { 
+        maximumFractionDigits: 20 
+    });
+
+    document.getElementById("tbq").textContent = `Terabecquerel (TBq): ${resultadoFormatado}`;
 }
