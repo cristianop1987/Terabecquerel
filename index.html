@@ -3,32 +3,47 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Conversor para Terabecquerel (TBq)</title>
+    <title>BioCalc - Conversor TBq</title>
     <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
 </head>
 <body>
-    <div class="container">
-        <h1>Converter para Terabecquerel (TBq)</h1>
+    <div class="app-container">
+        <header>
+            <h1>Conversor de Radioatividade</h1>
+            <p>Transforme unidades para Terabecquerel (TBq)</p>
+        </header>
 
-        <label for="valor">Valor:</label>
-        <input type="number" id="valor" placeholder="Digite o valor">
+        <main class="card">
+            <div class="input-group">
+                <label for="valor">Valor a converter</label>
+                <input type="number" id="valor" placeholder="Ex: 1" step="any">
+            </div>
 
-        <label for="unidade">Unidade:</label>
-        <select id="unidade">
-            <option value="Bq">Becquerel (Bq)</option>
-            <option value="KBq">Kilobecquerel (KBq)</option>
-            <option value="MBq">Megabecquerel (MBq)</option>
-            <option value="GBq">Gigabecquerel (GBq)</option>
-            <option value="PBq">Petabecquerel (PBq)</option>
-            <!-- Adicione mais unidades se precisar -->
-        </select>
+            <div class="input-group">
+                <label for="unidade">Unidade de origem</label>
+                <select id="unidade">
+                    <option value="Bq">Becquerel (Bq)</option>
+                    <option value="KBq">Kilobecquerel (KBq)</option>
+                    <option value="MBq">Megabecquerel (MBq)</option>
+                    <option value="GBq">Gigabecquerel (GBq)</option>
+                    <option value="TBq">Terabecquerel (TBq)</option>
+                    <option value="PBq">Petabecquerel (PBq)</option>
+                </select>
+            </div>
 
-        <button onclick="converterParaTBq()">Converter</button>
+            <button onclick="converterParaTBq()" class="btn-convert">Converter Agora</button>
 
-        <div id="resultado">
-            <h2>Resultado:</h2>
-            <p id="tbq">Terabecquerel (TBq): </p>
-        </div>
+            <div id="resultado" class="result-box hidden">
+                <span>Resultado em TBq:</span>
+                <strong id="tbq">0</strong>
+                <button onclick="copiarResultado()" class="btn-copy">Copiar</button>
+            </div>
+        </main>
+
+        <footer>
+            <p>&copy; 2024 Ferramenta de Cálculo Científico</p>
+        </footer>
     </div>
 
     <script src="script.js"></script>
