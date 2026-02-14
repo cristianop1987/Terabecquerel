@@ -3,79 +3,32 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BioCalc - Conversor TBq</title>
+    <title>Conversor para Terabecquerel (TBq)</title>
     <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
-    <link rel="manifest" href="manifest.json">
-    <meta name="theme-color" content="#2563eb">
-    <script>
-      if ('serviceWorker' in navigator) {
-        navigator.serviceWorker.register('sw.js');
-      }
-    </script>
-    <style>
-        /* Ajustes de centralização específicos */
-        body {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            text-align: center; /* Centraliza textos e elementos inline */
-        }
-        .app-container {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            width: 100%;
-        }
-        .card {
-            width: 100%;
-            max-width: 350px; /* Tamanho ideal para celular */
-            box-sizing: border-box;
-        }
-        .input-group {
-            text-align: left; /* Mantém os rótulos alinhados à esquerda dentro do card centralizado */
-            width: 100%;
-        }
-        #tbq {
-            display: block;
-            margin-top: 10px;
-            font-size: 1.2rem;
-            word-break: break-all;
-        }
-    </style>
 </head>
 <body>
-    <div class="app-container">
-        <header>
-            <h1>Conversor de Radioatividade</h1>
-            <p>Transforme unidades para Terabecquerel (TBq)</p>
-        </header>
+    <div class="container">
+        <h1>Converter para Terabecquerel (TBq)</h1>
 
-        <main class="card">
-            <div class="input-group">
-                <label for="valor">Valor a converter</label>
-                <input type="number" id="valor" placeholder="Ex: 1" step="any">
-            </div>
+        <label for="valor">Valor:</label>
+        <input type="number" id="valor" placeholder="Digite o valor">
 
-            <div class="input-group">
-                <label for="unidade">Unidade de origem</label>
-                <select id="unidade">
-                    <option value="Bq">Becquerel (Bq)</option>
-                    <option value="KBq">Kilobecquerel (KBq)</option>
-                    <option value="MBq">Megabecquerel (MBq)</option>
-                    <option value="GBq">Gigabecquerel (GBq)</option>
-                    <option value="TBq">Terabecquerel (TBq)</option>
-                    <option value="PBq">Petabecquerel (PBq)</option>
-                </select>
-            </div>
+        <label for="unidade">Unidade:</label>
+        <select id="unidade">
+            <option value="Bq">Becquerel (Bq)</option>
+            <option value="KBq">Kilobecquerel (KBq)</option>
+            <option value="MBq">Megabecquerel (MBq)</option>
+            <option value="GBq">Gigabecquerel (GBq)</option>
+            <option value="PBq">Petabecquerel (PBq)</option>
+            <!-- Adicione mais unidades se precisar -->
+        </select>
 
-            <button onclick="converterParaTBq()" class="btn-convert">Converter Agora</button>
+        <button onclick="converterParaTBq()">Converter</button>
 
-            <div id="resultado" class="result-box hidden">
-                <span>Resultado em TBq:</span>
-                <strong id="tbq">0</strong>
-            </div>
-        </main>
+        <div id="resultado">
+            <h2>Resultado:</h2>
+            <p id="tbq">Terabecquerel (TBq): </p>
+        </div>
     </div>
 
     <script src="script.js"></script>
